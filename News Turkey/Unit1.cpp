@@ -102,7 +102,6 @@ void __fastcall TForm1::ArticleListDblClick(TObject *Sender)
  _di_IXMLNode CNode;
  _di_IXMLNode ANode;
 
- ArticleList->Clear();
 
  SelectedNode = ArticleList->Selected;
 
@@ -127,7 +126,7 @@ void __fastcall TForm1::ArticleListDblClick(TObject *Sender)
 
 void __fastcall TForm1::Settings1Click(TObject *Sender)
 {
- frmSettings->Show();        
+ //frmSettings->Show();
 }
 //---------------------------------------------------------------------------
 
