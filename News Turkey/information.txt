@@ -12,7 +12,13 @@ abfComponents -
 Toolbar2000 -
 	http://www.jrsoftware.org
 
-abfComponents and Toolbar2000 are copyright to their respective owners.
+TBX -
+	http://www.g32.org
+
+TXMLDocument VCL Component
+	Can be found on Borland's Code Central
+
+These libraries are copyright to their respective owners. I've uploaded the version of these libs that I use to News Turkey's Anonymous FTP space under the used libs folder. You can download them from there.
 
 3. The WindowsXP.RES file in the project allows the program to use many of the slick-looking common controls found in XP. However, this makes it incompatible with anything older than XP. To be able to use under Windows 9x/ME/2000 simply remove this from the project using the Project Manager. It will then compile programmed to use the classic common controls.
 
