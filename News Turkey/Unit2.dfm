@@ -44,8 +44,8 @@ object frmSettings: TfrmSettings
     Top = 8
     Width = 393
     Height = 361
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = TabSheet4
+    TabIndex = 4
     TabOrder = 3
     object TabSheet1: TTabSheet
       Caption = 'General'
@@ -1008,7 +1008,7 @@ object frmSettings: TfrmSettings
         Top = 64
         Width = 107
         Height = 24
-        Caption = 'ALPHA 1039'
+        Caption = 'ALPHA 1063'
         Color = clRed
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clRed

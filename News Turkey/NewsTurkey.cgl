@@ -1,31 +1,30 @@
 Functions called:
- delete (35 times)
- SysReallocMem (371 times)
- SysFreeMem (3979 times)
+ SysReallocMem (379 times)
+ SysFreeMem (4802 times)
  realloc (1 times)
  memcpy (1 times)
- SysGetMem (3988 times)
+ delete (43 times)
+ SysGetMem (4811 times)
  delete[] (2 times)
- free (26 times)
+ free (30 times)
  new[] (14 times)
- new (40 times)
+ new (54 times)
  calloc (5 times)
- malloc (20 times)
+ malloc (24 times)
 Resource types used:
  object array (14 allocs, 13 max)
- object (40 allocs, 28 max)
- memory block (4014 allocs, 1325 max)
+ object (54 allocs, 38 max)
+ memory block (4841 allocs, 1403 max)
 Modules used:
  00330000 02/01/2002 09:00:00 C:\PROGRA~1\Borland\CBUILD~1\Bin\bcbie60.bpl
- 003F0000 11/20/2003 15:42:40 C:\Program Files\McAfee\McAfee Internet
- Security\GDPOPHK.DLL
- 00400000 03/01/2004 18:59:38 C:\Program Files\Borland\CBuilder6\Projects\News
+ 00360000 02/01/2002 09:00:00 C:\PROGRA~1\Borland\CBUILD~1\Bin\STLPMT45.DLL
+ 00400000 03/10/2004 20:30:08 C:\Program Files\Borland\CBuilder6\Projects\News
  Turkey\NewsTurkey.exe
  01190000 02/01/2002 09:00:00 C:\PROGRA~1\Borland\CBUILD~1\Bin\BORLNDMM.DLL
- 01370000 12/18/2002 01:00:00 C:\WINDOWS\system32\CSLSP.DLL
+ 01340000 12/18/2002 01:00:00 C:\WINDOWS\system32\CSLSP.DLL
  0CD00000 02/01/2002 09:00:00 C:\PROGRA~1\Borland\CBUILD~1\Bin\CG32.DLL
- 10000000 08/11/2003 18:45:32 C:\Program
- Files\Stardock\ObjectDock\DockShellHook.dll
+ 10000000 11/20/2003 15:42:40 C:\Program Files\McAfee\McAfee Internet
+ Security\GDPOPHK.DLL
  1A400000 01/21/2004 16:20:40 C:\WINDOWS\system32\urlmon.dll
  32600000 02/01/2002 09:00:00 C:\PROGRA~1\Borland\CBUILD~1\Bin\CC3260MT.DLL
  40000000 02/01/2002 09:00:00 C:\WINDOWS\System32\rtl60.bpl
@@ -34,6 +33,7 @@ Modules used:
  5AD70000 08/29/2002 05:41:18 C:\WINDOWS\system32\uxtheme.dll
  63000000 01/21/2004 16:16:22 C:\WINDOWS\system32\WININET.dll
  6BD00000 11/06/2002 19:00:38 C:\WINDOWS\System32\SYNCOR11.DLL
+ 6FA00000 01/10/2004 14:24:32 C:\Program Files\Gaim\idletrack.dll
  70A70000 01/21/2004 15:18:42 C:\WINDOWS\system32\SHLWAPI.dll
  71950000 08/29/2002 03:41:32
  C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.

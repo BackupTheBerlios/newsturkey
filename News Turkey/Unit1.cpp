@@ -142,6 +142,7 @@ void __fastcall TForm1::ArticleListDblClick(TObject *Sender)
 void __fastcall TForm1::Settings1Click(TObject *Sender)
 {
  frmSettings->Show();
+ frmSettings->PageControl1->ActivePageIndex = 0;
 }
 //---------------------------------------------------------------------------
 
@@ -188,16 +189,24 @@ void __fastcall TForm1::opNewSrcClick(TObject *Sender)
 
 void __fastcall TForm1::NavMenuChange(TObject *Sender, TTreeNode *Node)
 {
+ TSource newSrc;
+
  if(Node->Parent == SourcesNode) {
   ArticleList->Clear();
 
-  if(Node->Index == 0) {
-   XMLDoc->FileName = "http://news.com.com/2547-1_3-0-20.xml";
-  } else if(Node->Index == 1) {
-   XMLDoc->FileName = "http://gaim.sourceforge.net/rss.php/news";
-  }
+  newSrc = TurkeySources.Source.at(Node->Index);
+
+  XMLDoc->FileName = newSrc.Location;
 
  }
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::opAboutClick(TObject *Sender)
+{
+ frmSettings->Show();
+ frmSettings->PageControl1->ActivePageIndex = 4;        
 }
 //---------------------------------------------------------------------------
 

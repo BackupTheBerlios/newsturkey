@@ -1,6 +1,6 @@
 object frmSplash: TfrmSplash
-  Left = 192
-  Top = 114
+  Left = 205
+  Top = 147
   BorderStyle = bsNone
   Caption = 'Splash'
   ClientHeight = 300
@@ -19171,7 +19171,7 @@ object frmSplash: TfrmSplash
     Top = 56
     Width = 175
     Height = 20
-    Caption = 'ALPHA REVISION 1039'
+    Caption = 'ALPHA REVISION 1063'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
     Font.Height = -16

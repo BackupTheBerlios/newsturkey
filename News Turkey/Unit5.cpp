@@ -88,15 +88,24 @@ int __fastcall TfrmSplash::LoadSettings()
 
  //Step 3: Build the Source List data
 
+ //Later in development there will be a loop here
+ //to load sources from a config file...
+
+ Form1->TurkeySources.AddSource("C|Net News", "http://news.com.com/2547-1_3-0-20.xml");
+ Form1->TurkeySources.AddSource("CompTeks.net", "http://forums.compteks.net/ssi.php?a=out&f=6&show=10&type=rss");
+
  //Step 4: Check for New information from Havoc Software Productions
 
  //Step 5: If neccicary, check for updated feeds
+
+ return 0;
 }
 //---------------------------------------------------------------------------
 void __fastcall TfrmSplash::CloseDelayTimer(TObject *Sender)
 {
  LoadSettings();
- frmSplash->Hide();        
+ frmSplash->Hide();
+ CloseDelay->Enabled = FALSE;        
 }
 //---------------------------------------------------------------------------
 

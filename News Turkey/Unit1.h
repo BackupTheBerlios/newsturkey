@@ -19,7 +19,6 @@
 #include <xmldom.hpp>
 #include <XMLIntf.hpp>
 #include "Unit2.h"
-#include "Unit3.h"
 #include "Unit4.h"
 #include "Unit5.h"
 #include "TBXExtItems.hpp"
@@ -34,6 +33,7 @@
 #include "abfComponents.hpp"
 #pragma link "TBXOfficeXPTheme"
 #pragma include "TBXOfficeXPTheme.pas"
+#include "Unit3.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -77,6 +77,7 @@ __published:	// IDE-managed Components
         TTBXItem *btnSearchRSSDB;
         TTBXLink *TBXLink1;
         TabfOneInstance *abfOneInstance1;
+        TImageList *MnuImgs;
         void __fastcall FormShow(TObject *Sender);
         void __fastcall CppWebBrowser1ProgressChange(TObject *Sender,
           long Progress, long ProgressMax);
@@ -92,6 +93,7 @@ __published:	// IDE-managed Components
         void __fastcall btnBackClick(TObject *Sender);
         void __fastcall opNewSrcClick(TObject *Sender);
         void __fastcall NavMenuChange(TObject *Sender, TTreeNode *Node);
+        void __fastcall opAboutClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

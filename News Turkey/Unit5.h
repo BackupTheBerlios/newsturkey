@@ -15,6 +15,7 @@
 #include <XMLDoc.hpp>
 #include <xmldom.hpp>
 #include <XMLIntf.hpp>
+#include "Unit1.h"
 //---------------------------------------------------------------------------
 class TfrmSplash : public TForm
 {
