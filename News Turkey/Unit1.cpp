@@ -124,3 +124,23 @@ void __fastcall TForm1::SourceListDblClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::TBItem1Click(TObject *Sender)
+{
+ _di_IXMLNode ANode;
+ AnsiString fname;
+
+ XMLDoc->Active = TRUE;
+ ListSources(SourceList->Items->Item[0]);
+
+ ANode = RSSChannel->ChildNodes->FindNode("title");
+
+ if(DirectoryExists(ANode->Text) == FALSE) {
+  CreateDir(ANode->Text);
+ }
+
+ XMLDoc->SaveToFile(fname.sprintf("CNET News.com - Front Door\\feed.xml"));
+
+ XMLDoc->Active = FALSE;        
+}
+//---------------------------------------------------------------------------
+

@@ -1,11 +1,11 @@
 Functions called:
  delete (35 times)
- vsnprintf (32 times)
- SysReallocMem (19 times)
- SysFreeMem (1416 times)
+ vsnprintf (68 times)
+ SysReallocMem (47 times)
+ SysFreeMem (2088 times)
  realloc (1 times)
  memcpy (1 times)
- SysGetMem (1424 times)
+ SysGetMem (2096 times)
  delete[] (2 times)
  free (26 times)
  new[] (14 times)
@@ -15,15 +15,15 @@ Functions called:
 Resource types used:
  object array (14 allocs, 13 max)
  object (40 allocs, 28 max)
- memory block (1450 allocs, 625 max)
+ memory block (2122 allocs, 1111 max)
 Modules used:
  00330000 02/01/2002 09:00:00 C:\PROGRA~1\Borland\CBUILD~1\Bin\bcbie60.bpl
- 00400000 02/11/2004 20:09:52 C:\Program Files\Borland\CBuilder6\Projects\News
+ 00400000 02/12/2004 18:13:18 C:\Program Files\Borland\CBuilder6\Projects\News
  Turkey\NewsTurkey.exe
  01190000 02/01/2002 09:00:00 C:\PROGRA~1\Borland\CBUILD~1\Bin\BORLNDMM.DLL
- 022E0000 08/13/2001 22:18:54 C:\Program Files\Common Files\Symantec
+ 022F0000 08/13/2001 22:18:54 C:\Program Files\Common Files\Symantec
  Shared\Script Blocking\scrauth.dll
- 02400000 08/13/2001 22:19:14 C:\Program Files\Common Files\Symantec
+ 02410000 08/13/2001 22:19:14 C:\Program Files\Common Files\Symantec
  Shared\Script Blocking\ScrBlock.dll
  0CD00000 02/01/2002 09:00:00 C:\PROGRA~1\Borland\CBUILD~1\Bin\CG32.DLL
  0FFD0000 08/18/2001 14:00:00 C:\WINDOWS\System32\rsaenh.dll
@@ -34,7 +34,6 @@ Modules used:
  40350000 02/01/2002 09:00:00 C:\WINDOWS\System32\xmlrtl60.bpl
  5AD70000 08/18/2001 14:00:00 C:\WINDOWS\system32\uxtheme.dll
  6BD00000 04/17/2000 21:02:20 C:\WINDOWS\System32\SYNCOR11.DLL
- 6FA00000 01/10/2004 14:24:32 C:\Program Files\Gaim\idletrack.dll
  71950000 08/18/2001 14:00:00
  C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.
 0.0_x-ww_1382d70a\comctl32.dll
@@ -46,12 +45,15 @@ Modules used:
  71B20000 08/18/2001 14:00:00 C:\WINDOWS\system32\mpr.dll
  71C20000 08/18/2001 14:00:00 C:\WINDOWS\System32\NETAPI32.dll
  722B0000 08/18/2001 14:00:00 C:\WINDOWS\System32\sensapi.dll
+ 72D10000 08/18/2001 14:00:00 C:\WINDOWS\System32\msacm32.drv
+ 72D20000 08/18/2001 14:00:00 C:\WINDOWS\System32\wdmaud.drv
  73000000 08/18/2001 14:00:00 C:\WINDOWS\System32\winspool.drv
  73D50000 08/18/2001 14:00:00 C:\WINDOWS\System32\cryptnet.dll
  74770000 08/18/2001 14:00:00 C:\WINDOWS\System32\mlang.dll
  74D30000 08/18/2001 14:00:00 C:\WINDOWS\System32\oledlg.dll
  75A70000 08/18/2001 14:00:00 C:\WINDOWS\system32\USERENV.dll
  75C50000 08/18/2001 14:00:00 c:\windows\system32\jscript.dll
+ 75E90000 08/18/2001 14:00:00 C:\WINDOWS\System32\SXS.DLL
  75F40000 08/18/2001 14:00:00 C:\WINDOWS\system32\appHelp.dll
  760F0000 08/18/2001 14:00:00 C:\WINDOWS\system32\urlmon.dll
  76170000 08/18/2001 14:00:00 C:\WINDOWS\System32\shdoclc.dll
@@ -79,6 +81,8 @@ Modules used:
  771B0000 08/18/2001 14:00:00 C:\WINDOWS\system32\OLE32.DLL
  772D0000 08/18/2001 14:00:00 C:\WINDOWS\system32\SHLWAPI.dll
  773D0000 08/18/2001 14:00:00 C:\WINDOWS\system32\SHELL32.dll
+ 77BD0000 08/18/2001 14:00:00 C:\WINDOWS\System32\midimap.dll
+ 77BE0000 08/18/2001 14:00:00 C:\WINDOWS\System32\MSACM32.dll
  77C00000 08/18/2001 14:00:00 C:\WINDOWS\system32\version.dll
  77C10000 08/18/2001 14:00:00 C:\WINDOWS\system32\MSVCRT.DLL
  77C70000 08/18/2001 14:00:00 C:\WINDOWS\system32\GDI32.dll

@@ -94,6 +94,7 @@ object Form1: TForm1
     Top = 80
     object TBItem1: TTBItem
       Caption = 'Get News'
+      OnClick = TBItem1Click
     end
   end
 end
