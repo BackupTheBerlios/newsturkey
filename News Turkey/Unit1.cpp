@@ -10,6 +10,7 @@
 #pragma link "TB2Dock"
 #pragma link "TB2Item"
 #pragma link "TB2Toolbar"
+#pragma link "TB2ToolWindow"
 #pragma resource "*.dfm"
 TForm1 *Form1;
 //---------------------------------------------------------------------------
@@ -50,7 +51,7 @@ void __fastcall TForm1::Exit1Click(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TForm1::ListSources(TTreeNode* RootNode)
+void __fastcall TForm1::ListSources()
 {
  _di_IXMLNode ItemNode;
  _di_IXMLNode DataNode;
@@ -61,7 +62,7 @@ void __fastcall TForm1::ListSources(TTreeNode* RootNode)
  while(ItemNode != NULL)
  {
   DataNode = ItemNode->ChildNodes->FindNode("title");
-  SourceList->Items->AddChild(RootNode, DataNode->Text);
+  ArticleList->AddItem(DataNode->Text, NULL);
   ItemNode = RSSChannel->ChildNodes->FindSibling(ItemNode, 1);
  }
 }
@@ -74,14 +75,13 @@ void __fastcall TForm1::XMLDocAfterOpen(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-
-void __fastcall TForm1::GetNews1Click(TObject *Sender)
+void __fastcall TForm1::TBItem1Click(TObject *Sender)
 {
  _di_IXMLNode ANode;
  AnsiString fname;
 
  XMLDoc->Active = TRUE;
- ListSources(SourceList->Items->Item[0]);
+ ListSources();
 
  ANode = RSSChannel->ChildNodes->FindNode("title");
 
@@ -91,19 +91,20 @@ void __fastcall TForm1::GetNews1Click(TObject *Sender)
 
  XMLDoc->SaveToFile(fname.sprintf("CNET News.com - Front Door\\feed.xml"));
 
- XMLDoc->Active = FALSE;
+ XMLDoc->Active = FALSE;        
 }
 //---------------------------------------------------------------------------
 
-
-void __fastcall TForm1::SourceListDblClick(TObject *Sender)
+void __fastcall TForm1::ArticleListDblClick(TObject *Sender)
 {
- TTreeNode* SelectedNode;
+ TListItem *SelectedNode;
  _di_IXMLNode BNode;
  _di_IXMLNode CNode;
  _di_IXMLNode ANode;
 
- SelectedNode = SourceList->Selected;
+ ArticleList->Clear();
+
+ SelectedNode = ArticleList->Selected;
 
  XMLDoc->Active = TRUE;
 
@@ -124,23 +125,9 @@ void __fastcall TForm1::SourceListDblClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::TBItem1Click(TObject *Sender)
+void __fastcall TForm1::Settings1Click(TObject *Sender)
 {
- _di_IXMLNode ANode;
- AnsiString fname;
-
- XMLDoc->Active = TRUE;
- ListSources(SourceList->Items->Item[0]);
-
- ANode = RSSChannel->ChildNodes->FindNode("title");
-
- if(DirectoryExists(ANode->Text) == FALSE) {
-  CreateDir(ANode->Text);
- }
-
- XMLDoc->SaveToFile(fname.sprintf("CNET News.com - Front Door\\feed.xml"));
-
- XMLDoc->Active = FALSE;        
+ frmSettings->Show();        
 }
 //---------------------------------------------------------------------------
 

@@ -16,3 +16,9 @@ __fastcall TfrmSettings::TfrmSettings(TComponent* Owner)
 //---------------------------------------------------------------------------
 
 
+void __fastcall TfrmSettings::btnCancelClick(TObject *Sender)
+{
+ frmSettings->Hide();        
+}
+//---------------------------------------------------------------------------
+

@@ -4,7 +4,7 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="NewsTurkey.exe"/>
-    <OBJFILES value="NewsTurkey.obj Unit1.obj Unit2.obj"/>
+    <OBJFILES value="NewsTurkey.obj Unit1.obj Unit2.obj Unit3.obj"/>
     <RESFILES value="NewsTurkey.res windowsxp.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) Unit1.dfm Unit2.dfm"/>
@@ -53,6 +53,7 @@
       <FILE FILENAME="Unit1.cpp" FORMNAME="Form1" UNITNAME="Unit1" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="windowsxp.RES" FORMNAME="" UNITNAME="windowsxp.RES" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit2.cpp" FORMNAME="frmSettings" UNITNAME="Unit2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit3.cpp" FORMNAME="" UNITNAME="Unit3" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

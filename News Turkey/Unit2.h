@@ -35,6 +35,11 @@ __published:	// IDE-managed Components
         TGroupBox *GroupBox3;
         TCheckBox *CheckBox6;
         TCheckBox *CheckBox7;
+        TTabSheet *TabSheet5;
+        TLabel *Label6;
+        TMemo *Memo1;
+        TLabel *Label7;
+        void __fastcall btnCancelClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TfrmSettings(TComponent* Owner);
