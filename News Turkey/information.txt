@@ -1,0 +1,19 @@
+News Turkey ALPHA Development Information File
+---
+
+Ok, just a few peices of info to clear up before you can start working on NewsTurkey.
+
+1. News Turkey REQUIRES Borland C++ Builder 6 Pro.
+2. Borland C++ Builder REQUIRES abfComponents and Toolbar2000 to be able to open the project. These are VCL Libraries that News Turkey uses. Both are free.
+
+abfComponents -
+	http://www.abfdev.com
+
+Toolbar2000 -
+	http://www.jrsoftware.org
+
+abfComponents and Toolbar2000 are copyright to their respective owners.
+
+3. The WindowsXP.RES file in the project allows the program to use many of the slick-looking common controls found in XP. However, this makes it incompatible with anything older than XP. To be able to use under Windows 9x/ME/2000 simply remove this from the project using the Project Manager. It will then compile programmed to use the classic common controls.
+
+That's all for now. Later!
