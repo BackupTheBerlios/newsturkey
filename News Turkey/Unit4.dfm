@@ -139,6 +139,7 @@ object frmNewSource: TfrmNewSource
     Height = 25
     Caption = 'Cancel'
     TabOrder = 1
+    OnClick = CancelClick
   end
   object btnOK: TButton
     Tag = 1

@@ -19171,7 +19171,7 @@ object frmSplash: TfrmSplash
     Top = 56
     Width = 175
     Height = 20
-    Caption = 'ALPHA REVISION 1063'
+    Caption = 'ALPHA REVISION 1079'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
     Font.Height = -16

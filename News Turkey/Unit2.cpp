@@ -29,3 +29,43 @@ void __fastcall TfrmSettings::btnAddSourceClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfrmSettings::FormShow(TObject *Sender)
+{
+ TRegistry *Registry = new TRegistry(KEY_READ);
+ int setting;
+
+ Registry->RootKey = HKEY_LOCAL_MACHINE;
+
+ Registry->OpenKey("\\SOFTWARE\\HAVOC\\NewsTurkey\\",false);
+
+ setting = Registry->ReadInteger("whales");
+
+ if(setting == 1) {
+  chkWhales->Checked = TRUE;
+ } else {
+  chkWhales->Checked = FALSE;
+ }
+
+ delete Registry;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmSettings::btnApplyClick(TObject *Sender)
+{
+ TRegistry *Registry = new TRegistry(KEY_WRITE);
+ int setting;
+
+ Registry->RootKey = HKEY_LOCAL_MACHINE;
+
+ Registry->OpenKey("\\SOFTWARE\\HAVOC\\NewsTurkey\\",false);
+
+ if(chkWhales->Checked == TRUE) {
+  Registry->WriteInteger("whales", 1);
+ } else {
+  Registry->WriteInteger("whales", 0);
+ }
+
+ delete Registry;
+}
+//---------------------------------------------------------------------------
+

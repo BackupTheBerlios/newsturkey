@@ -10,6 +10,8 @@
 #include <ComCtrls.hpp>
 #include "Unit4.h"
 #include "Unit3.h"
+#include <ExtCtrls.hpp>
+#include <Graphics.hpp>
 //---------------------------------------------------------------------------
 class TfrmSettings : public TForm
 {
@@ -45,14 +47,17 @@ __published:	// IDE-managed Components
         TButton *btnAddSource;
         TButton *btnRemoveSource;
         TGroupBox *GroupBox5;
-        TCheckBox *btnEnableWebAdd;
-        TCheckBox *btnAutoNames;
+        TCheckBox *chkEnableWebAdd;
+        TCheckBox *chkAutoNames;
         TGroupBox *GroupBox6;
         TRadioButton *rDialUp;
         TRadioButton *rBroadband;
         TMemo *Memo2;
+        TImage *Image1;
         void __fastcall btnCancelClick(TObject *Sender);
         void __fastcall btnAddSourceClick(TObject *Sender);
+        void __fastcall FormShow(TObject *Sender);
+        void __fastcall btnApplyClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TfrmSettings(TComponent* Owner);

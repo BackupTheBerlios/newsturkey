@@ -18,6 +18,18 @@
 #include <XMLDoc.hpp>
 #include <xmldom.hpp>
 #include <XMLIntf.hpp>
+#include "abfComponents.hpp"
+#include "TB2Dock.hpp"
+#include "TB2ExtItems.hpp"
+#include "TB2Item.hpp"
+#include "TB2Toolbar.hpp"
+#include "TBX.hpp"
+#include "TBXDkPanels.hpp"
+#include "TBXExtItems.hpp"
+#include "TBXStatusBars.hpp"
+#include "TBXSwitcher.hpp"
+#include <AppEvnts.hpp>
+#include <Registry.hpp>
 #include "Unit2.h"
 #include "Unit4.h"
 #include "Unit5.h"
@@ -31,9 +43,11 @@
 #include "TBXStatusBars.hpp"
 #include "TBXDkPanels.hpp"
 #include "abfComponents.hpp"
+#include <AppEvnts.hpp>
 #pragma link "TBXOfficeXPTheme"
 #pragma include "TBXOfficeXPTheme.pas"
 #include "Unit3.h"
+#include "Unit6.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -78,6 +92,15 @@ __published:	// IDE-managed Components
         TTBXLink *TBXLink1;
         TabfOneInstance *abfOneInstance1;
         TImageList *MnuImgs;
+        TabfTrayIcon *TrayIcon;
+        TTBXPopupMenu *TaskbarPopupMnu;
+        TTBXItem *TBXItem1;
+        TTBXItem *TBXItem2;
+        TTBXItem *TBXItem3;
+        TTBXLabelItem *TBXLabelItem2;
+        TApplicationEvents *ApplicationEvents1;
+        TXMLDocument *ProgramUpdateChecker;
+        TXMLDocument *SettingsFileManager;
         void __fastcall FormShow(TObject *Sender);
         void __fastcall CppWebBrowser1ProgressChange(TObject *Sender,
           long Progress, long ProgressMax);
@@ -94,6 +117,9 @@ __published:	// IDE-managed Components
         void __fastcall opNewSrcClick(TObject *Sender);
         void __fastcall NavMenuChange(TObject *Sender, TTreeNode *Node);
         void __fastcall opAboutClick(TObject *Sender);
+        void __fastcall XMLDocBeforeOpen(TObject *Sender);
+        void __fastcall XMLDocBeforeClose(TObject *Sender);
+        void __fastcall XMLDocAfterClose(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
@@ -104,6 +130,7 @@ public:		// User declarations
         TTreeNode* SourcesNode;
         TTreeNode* FeedDBNode;
         TTreeNode* PopFeedsNode;
+        NTSettingsDB TurkeySettings;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

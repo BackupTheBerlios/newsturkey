@@ -21,6 +21,16 @@
 #pragma link "TBXStatusBars"
 #pragma link "TBXDkPanels"
 #pragma link "abfComponents"
+#pragma link "abfComponents"
+#pragma link "TB2Dock"
+#pragma link "TB2ExtItems"
+#pragma link "TB2Item"
+#pragma link "TB2Toolbar"
+#pragma link "TBX"
+#pragma link "TBXDkPanels"
+#pragma link "TBXExtItems"
+#pragma link "TBXStatusBars"
+#pragma link "TBXSwitcher"
 #pragma resource "*.dfm"
 TForm1 *Form1;
 //---------------------------------------------------------------------------
@@ -84,7 +94,14 @@ void __fastcall TForm1::ListSources()
 void __fastcall TForm1::XMLDocAfterOpen(TObject *Sender)
 {
  RSSRoot = XMLDoc->ChildNodes->FindNode("rss");
+ if(RSSRoot == NULL) {
+    Application->MessageBoxA("Document is not a valid RSS file. Sorry.", "Error", NULL);
+    XMLDoc->Active = FALSE;
+    return;
+ }
+
  RSSChannel = RSSRoot->ChildNodes->FindNode("channel");
+ pbProgress->Position++;
 }
 //---------------------------------------------------------------------------
 
@@ -95,7 +112,17 @@ void __fastcall TForm1::TBItem1Click(TObject *Sender)
 
  ArticleList->Clear();
 
+ if(XMLDoc->FileName == NULL) {
+  Application->MessageBoxA("News Turkey can't get news unless a source to get news from is selected.", "News Turkey Error", NULL);
+  return;
+ }
+
  XMLDoc->Active = TRUE;
+
+ if(XMLDoc->Active == FALSE) { //This is to predvent Access Violations if there is a problem parsing the file
+  return;
+ }
+
  ListSources();
 
  ANode = RSSChannel->ChildNodes->FindNode("title");
@@ -209,4 +236,26 @@ void __fastcall TForm1::opAboutClick(TObject *Sender)
  frmSettings->PageControl1->ActivePageIndex = 4;        
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm1::XMLDocBeforeOpen(TObject *Sender)
+{
+ StatusBar->Panels->Items[0]->Caption = "Parsing XML File...";
+ pbProgress->Max = 4;
+ pbProgress->Position = 1;      
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::XMLDocBeforeClose(TObject *Sender)
+{
+ pbProgress->Position++;        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::XMLDocAfterClose(TObject *Sender)
+{
+ pbProgress->Position = 0;
+ StatusBar->Panels->Items[0]->Caption = "Done.";
+}
+//---------------------------------------------------------------------------
+
 

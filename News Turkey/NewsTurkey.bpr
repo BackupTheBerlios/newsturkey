@@ -4,12 +4,13 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="NewsTurkey.exe"/>
-    <OBJFILES value="NewsTurkey.obj Unit1.obj Unit2.obj Unit3.obj Unit4.obj Unit5.obj"/>
+    <OBJFILES value="NewsTurkey.obj Unit1.obj Unit2.obj Unit3.obj Unit4.obj Unit5.obj Unit6.obj"/>
     <RESFILES value="NewsTurkey.res windowsxp.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) Unit1.dfm Unit2.dfm Unit4.dfm Unit5.dfm"/>
     <LIBFILES value=""/>
-    <LIBRARIES value="tbx_cb6.lib tb2k_cb6.lib"/>
+    <LIBRARIES value="vclx.lib bcbsmp.lib tbx_cb6.lib tb2k_cb6.lib inet.lib xmlrtl.lib bcbie.lib 
+      rtl.lib vcl.lib"/>
     <SPARELIBS value="vcl.lib rtl.lib bcbie.lib xmlrtl.lib inet.lib tb2k_cb6.lib tbx_cb6.lib 
       bcbsmp.lib vclx.lib"/>
     <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi bcbsmp.bpi dbrtl.bpi adortl.bpi vcldb.bpi 
@@ -26,7 +27,7 @@
     <RELEASELIBPATH value="$(BCB)\lib\release"/>
     <LINKER value="ilink32"/>
     <USERDEFINES value="_DEBUG"/>
-    <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
+    <SYSDEFINES value="_RTLDLL;NO_STRICT"/>
     <MAINSOURCE value="NewsTurkey.cpp"/>
     <INCLUDEPATH value="C:\ABFsoft\units;..\..\Examples\Icons;..;$(BCB)\include;$(BCB)\include\vcl;&quot;C:\Program Files\Borland\tb2k\Source&quot;;&quot;C:\Program Files\Borland\tbx&quot;"/>
     <LIBPATH value="C:\ABFsoft\units;$(BCB)\Projects\Lib;..\..\Examples\Icons;..;$(BCB)\lib\obj;$(BCB)\lib;&quot;C:\Program Files\Borland\tbx&quot;;&quot;C:\Program Files\Borland\tb2k\Source&quot;"/>
@@ -43,7 +44,7 @@
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
-    <ALLOBJ value="c0w32.obj $(PACKAGES) Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLOBJ value="c0w32.obj Memmgr.Lib sysinit.obj $(OBJFILES)"/>
     <ALLRES value="$(RESFILES)"/>
     <ALLLIB value="cg32.lib $(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
     <OTHERFILES value=""/>
@@ -57,20 +58,21 @@
       <FILE FILENAME="Unit3.cpp" FORMNAME="" UNITNAME="Unit3" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit4.cpp" FORMNAME="frmNewSource" UNITNAME="Unit4" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit5.cpp" FORMNAME="frmSplash" UNITNAME="Unit5" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit6.cpp" FORMNAME="" UNITNAME="Unit6" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
 
   <IDEOPTIONS>
 [Version Info]
-IncludeVerInfo=0
+IncludeVerInfo=1
 AutoIncBuild=0
-MajorVer=1
-MinorVer=0
-Release=0
+MajorVer=0
+MinorVer=1
+Release=1079
 Build=0
 Debug=0
-PreRelease=0
+PreRelease=1
 Special=0
 Private=0
 DLL=0
@@ -78,16 +80,17 @@ Locale=1033
 CodePage=1252
 
 [Version Info Keys]
-CompanyName=
+CompanyName=Havoc Software Productions
 FileDescription=
-FileVersion=1.0.0.0
+FileVersion=0.1.1079.0
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
-ProductName=
-ProductVersion=1.0.0.0
+ProductName=News Turkey
+ProductVersion=ALPHA REVISION 1079
 Comments=
+Developer=Compman
 
 [HistoryLists\hlIncludePath]
 Count=3

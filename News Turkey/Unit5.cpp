@@ -17,8 +17,12 @@ __fastcall TfrmSplash::TfrmSplash(TComponent* Owner)
 
 int __fastcall TfrmSplash::LoadSettings()
 {
- /* _di_IXMLNode TurkeySettingsRoot;
- _di_IXMLNode TmpNode;
+ AnsiString S;
+ TRegistry *Registry = new TRegistry(KEY_READ);
+ TRegKeyInfo srcKeyInfo;
+ TStringList *srcKeyNames = new TStringList;
+ int i;
+
  //This is the function that will load all info into
  //News Turkey.
 
@@ -26,61 +30,44 @@ int __fastcall TfrmSplash::LoadSettings()
 
  if(!FileExists("settings.xml")) {
   //No config file exists, we need to create one.
-  //Download XML File Template
-  XMLSettings->FileName = "http://havoc.compteks.net/newsturkey/xmltempl.xml";
-  XMLSettings->Active = TRUE;
 
-  TurkeySettingsRoot->NodeName = "turkeysettings";
+  //For configuragation we use the internal Settings Database
+  //NTSettingsDB... TurkeySettings is our door.
+  //The definition of TurkeySettings is in Unit1.h, so
+  //don't look for it here.
 
-  //Cat. Nodes
-  TmpNode->NodeName = "general";
-  TurkeySettingsRoot->ChildNodes->Add(TmpNode);
-  TmpNode->NodeName = "sources"
-  TurkeySettingsRoot->ChildNodes->Add(TmpNode);
-  TmpNode->NodeName = "internetcon";
-  TurkeySettingsRoot->ChildNodes->Add(TmpNode);
-
-  //Property Nodes
+  //Properties
 
   //Cat: General
-  TmpNode->NodeName = "startatboot";
-  TmpNode->Text = "0";
-  TurkeySettingsRoot->ChildNodes->Nodes[0]->ChildNodes->Add(TmpNode);
-  TmpNode->NodeName = "refreshatstart";
-  TmpNode->Text = "0";
-  TurkeySettingsRoot->ChildNodes->Nodes[0]->ChildNodes->Add(TmpNode);
-  TmpNode->NodeName = "instantadd";
-  TmpNode->Text = "0";
-  TurkeySettingsRoot->ChildNodes->Nodes[0]->ChildNodes->Add(TmpNode);
-  TmpNode->NodeName = "animateicon";
-  TmpNode->Text = "1";
-  TurkeySettingsRoot->ChildNodes->Nodes[0]->ChildNodes->Add(TmpNode);
-  TmpNode->NodeName = "savethewhales";
-  TmpNode->Text = "0";
-  TurkeySettingsRoot->ChildNodes->Nodes[0]->ChildNodes->Add(TmpNode);
+  /* Form1->TurkeySettings.AddSetting("startatboot", "0", (void *) frmSettings->chkAutoStart->Checked);
+  Form1->TurkeySettings.AddSetting("refreshatstart", "0", (void *)frmSettings->chkStartRefresh->Checked);
+  Form1->TurkeySettings.AddSetting("instantadd", "0", (void *)frmSettings->chkEnableInstantAdd->Checked);
+  Form1->TurkeySettings.AddSetting("animateicon", "1", (void *)frmSettings->chkAnimateTaskbar->Checked);
+  Form1->TurkeySettings.AddSetting("savethewhales", "0", (void *)frmSettings->chkWhales->Checked);
 
   //Cat: Sources
-  TmpNode->NodeName = "webadd";
-  TmpNode->Text = "0";
-  TurkeySettingsRoot->ChildNodes->Nodes[1]->ChildNodes->Add(TmpNode);
-  TmpNode->NodeName = "autodetectnames";
-  TmpNode->Text = "0";
-  TurkeySettingsRoot->ChildNodes->Nodes[1]->ChildNodes->Add(TmpNode);
+  Form1->TurkeySettings.AddSetting("webadd", "0", (void *)frmSettings->chkEnableWebAdd->Checked);
+  Form1->TurkeySettings.AddSetting("autodetectnames", "0", (void *)frmSettings->chkAutoNames->Checked);
 
   //Cat: InternetCon
-  TmpNode->NodeName = "contype";
-  TmpNode->Text = "1";
-  TurkeySettingsRoot->ChildNodes->Nodes[2]->ChildNodes->Add(TmpNode);
+  Form1->TurkeySettings.AddSetting("contype", "0", NULL);
 
-  //The Settings Root is created, add it to the document.
-  XMLSettings->ChildNodes->Add(TurkeySettingsRoot);
+  //Wonderful, our settings are now in the Database.
+  //Now, let's wrap up by writing them to a file...
+  Form1->TurkeySettings.OutToXML("settings.xml");
 
-  //Save it!
-  XMLSettings->SaveToFile("settings.xml");
-
+  //And the database is filled with info!
+ } else {
+  //if the config file exists, the SettingsDB can manage
+  //loading the values itself. :)
+  Form1->TurkeySettings.LoadFromXML("settings.xml"); */
  }
 
- //Step 2: Setup the Location List pointers */
+ //One final thing to do, we need to sync the property
+ //pages in the program with the values in the DB.
+ Form1->TurkeySettings.PropertySync();
+
+ //Step 2: Setup the Location List pointers
 
  Form1->SourcesNode = Form1->NavMenu->Items->Item[0];
  Form1->FeedDBNode = Form1->NavMenu->Items->Item[1];
@@ -91,8 +78,33 @@ int __fastcall TfrmSplash::LoadSettings()
  //Later in development there will be a loop here
  //to load sources from a config file...
 
- Form1->TurkeySources.AddSource("C|Net News", "http://news.com.com/2547-1_3-0-20.xml");
- Form1->TurkeySources.AddSource("CompTeks.net", "http://forums.compteks.net/ssi.php?a=out&f=6&show=10&type=rss");
+ //Form1->TurkeySources.AddSource("C|Net News", "http://news.com.com/2547-1_3-0-20.xml");
+ //Form1->TurkeySources.AddSource("CompTeks.net", "http://forums.compteks.net/ssi.php?a=out&f=6&show=10&type=rss");
+ 
+            Registry->RootKey = HKEY_LOCAL_MACHINE;
+            // False because we do not want to create it if it doesn't exist
+            if(!Registry->OpenKey("\\SOFTWARE\\HAVOC\\NewsTurkey\\Sources\\",false))
+            {
+             Application->MessageBoxA("KEY NOT OPENED", "Error", NULL);
+            }
+            if(!Registry->GetKeyInfo(srcKeyInfo)) {
+             return 0;
+            }
+
+            try {
+                Registry->GetKeyNames(srcKeyNames);
+
+                for(i=0;i < srcKeyInfo.NumSubKeys;i++)
+                {
+                        Registry->OpenKey( S.sprintf("\\SOFTWARE\\HAVOC\\NewsTurkey\\Sources\\%s\\", srcKeyNames->Strings[i]), false);
+                        Form1->TurkeySources.AddSource( srcKeyNames->Strings[i], Registry->ReadString("url"));
+                }
+
+            } __finally {
+                delete srcKeyNames;
+            }
+
+            delete Registry;
 
  //Step 4: Check for New information from Havoc Software Productions
 

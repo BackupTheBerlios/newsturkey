@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 192
   Top = 130
   Width = 763
-  Height = 541
+  Height = 542
   Caption = 'News Turkey'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,17 +12,18 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  Visible = True
   OnShow = FormShow
   DesignSize = (
     755
-    511)
+    508)
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 144
     Top = 223
     Width = 606
-    Height = 262
+    Height = 263
     Anchors = [akLeft, akTop, akRight, akBottom]
     BevelOuter = bvNone
     TabOrder = 0
@@ -30,12 +31,12 @@ object Form1: TForm1
       Left = 0
       Top = 0
       Width = 606
-      Height = 262
+      Height = 263
       Align = alClient
       TabOrder = 0
       OnProgressChange = CppWebBrowser1ProgressChange
       ControlData = {
-        4C000000A23E0000141B00000000000000000000000000000000000000000000
+        4C000000A23E00002F1B00000000000000000000000000000000000000000000
         000000004C000000000000000000000001000000E0D057007335CF11AE690800
         2B2E126208000000000000004C0000000114020000000000C000000000000046
         8000000000000000000000000000000000000000000000000000000000000000
@@ -46,7 +47,7 @@ object Form1: TForm1
     Left = 0
     Top = 51
     Width = 137
-    Height = 434
+    Height = 435
     Anchors = [akLeft, akTop, akBottom]
     Ctl3D = True
     Images = ImageList1
@@ -82,7 +83,7 @@ object Form1: TForm1
   end
   object StatusBar: TTBXStatusBar
     Left = 0
-    Top = 489
+    Top = 486
     Width = 755
     Panels = <
       item
@@ -132,7 +133,6 @@ object Form1: TForm1
       ImageIndex = 0
       ParentFont = False
       TabOrder = 1
-      Visible = False
     end
   end
   object TBXDock1: TTBXDock
@@ -206,6 +206,7 @@ object Form1: TForm1
       end
       object btnAbout: TTBXItem
         Caption = 'About'
+        Layout = tbxlGlyphLeft
         OnClick = opAboutClick
       end
     end
@@ -230,7 +231,7 @@ object Form1: TForm1
       end
     end
     object TBXToolbar4: TTBXToolbar
-      Left = 530
+      Left = 556
       Top = 23
       Caption = 'RSS-DB Search'
       DockPos = 560
@@ -250,8 +251,10 @@ object Form1: TForm1
     end
   end
   object XMLDoc: TXMLDocument
-    FileName = 'http://news.com.com/2547-1_3-0-20.xml'
+    BeforeOpen = XMLDocBeforeOpen
     AfterOpen = XMLDocAfterOpen
+    BeforeClose = XMLDocBeforeClose
+    AfterClose = XMLDocAfterClose
     Left = 264
     Top = 80
     DOMVendorDesc = 'MSXML'
@@ -557,7 +560,7 @@ object Form1: TForm1
   end
   object abfOneInstance1: TabfOneInstance
     Message = 'Please do not try and start two copies of News Turkey at once.'
-    ShowMessage = True
+    Identifier = 'NTurkey'
     Left = 432
     Top = 336
   end
@@ -703,5 +706,48 @@ object Form1: TForm1
       FFFF000000000000FC7F000000000000FFFF000000000000FFFF000000000000
       FFFF000000000000FFFF00000000000000000000000000000000000000000000
       000000000000}
+  end
+  object TrayIcon: TabfTrayIcon
+    ImageList = MnuImgs
+    PopupMenu = TaskbarPopupMnu
+    Visible = True
+    Left = 384
+    Top = 128
+  end
+  object TaskbarPopupMnu: TTBXPopupMenu
+    Images = MnuImgs
+    Left = 384
+    Top = 80
+    object TBXLabelItem2: TTBXLabelItem
+      Caption = 'News Turkey'
+      Margin = 2
+      Orientation = tbxoHorizontal
+    end
+    object TBXItem3: TTBXItem
+      Caption = 'Update Sources'
+    end
+    object TBXItem2: TTBXItem
+      Caption = 'About'
+      OnClick = opAboutClick
+    end
+    object TBXItem1: TTBXItem
+      Caption = 'Exit'
+      OnClick = Exit1Click
+    end
+  end
+  object ApplicationEvents1: TApplicationEvents
+    Left = 208
+    Top = 136
+  end
+  object ProgramUpdateChecker: TXMLDocument
+    FileName = 'http://havoc.compteks.net/updateserver.xml'
+    Left = 264
+    Top = 136
+    DOMVendorDesc = 'MSXML'
+  end
+  object SettingsFileManager: TXMLDocument
+    Left = 224
+    Top = 272
+    DOMVendorDesc = 'MSXML'
   end
 end

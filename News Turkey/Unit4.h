@@ -29,6 +29,7 @@ __published:	// IDE-managed Components
         TLabel *Label5;
         TEdit *txtSrcName;
         void __fastcall btnOKClick(TObject *Sender);
+        void __fastcall CancelClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TfrmNewSource(TComponent* Owner);
