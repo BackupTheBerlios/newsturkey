@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = 193
-  Top = 113
-  Width = 751
-  Height = 485
+  Left = 184
+  Top = 114
+  Width = 763
+  Height = 541
   Caption = 'News Turkey'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -10,48 +10,31 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
-  Menu = MainMenu1
   OldCreateOrder = False
   OnShow = FormShow
   DesignSize = (
-    743
-    431)
+    755
+    507)
   PixelsPerInch = 96
   TextHeight = 13
-  object sbStatus: TStatusBar
-    Left = 0
-    Top = 412
-    Width = 743
-    Height = 19
-    Panels = <
-      item
-        Text = 'News Turkey: Ready to Go!'
-        Width = 500
-      end
-      item
-        Width = 50
-      end>
-    SimplePanel = False
-    SizeGrip = False
-  end
   object Panel1: TPanel
     Left = 144
-    Top = 200
-    Width = 594
-    Height = 209
+    Top = 223
+    Width = 606
+    Height = 262
     Anchors = [akLeft, akTop, akRight, akBottom]
     BevelOuter = bvNone
-    TabOrder = 1
+    TabOrder = 0
     object CppWebBrowser1: TCppWebBrowser
       Left = 0
       Top = 0
-      Width = 594
-      Height = 209
+      Width = 606
+      Height = 262
       Align = alClient
       TabOrder = 0
       OnProgressChange = CppWebBrowser1ProgressChange
       ControlData = {
-        4C000000643D00009A1500000000000000000000000000000000000000000000
+        4C000000A23E0000141B00000000000000000000000000000000000000000000
         000000004C000000000000000000000001000000E0D057007335CF11AE690800
         2B2E126208000000000000004C0000000114020000000000C000000000000046
         8000000000000000000000000000000000000000000000000000000000000000
@@ -60,9 +43,9 @@ object Form1: TForm1
   end
   object NavMenu: TTreeView
     Left = 0
-    Top = 8
+    Top = 51
     Width = 137
-    Height = 401
+    Height = 434
     Anchors = [akLeft, akTop, akBottom]
     Ctl3D = True
     Images = ImageList1
@@ -70,21 +53,21 @@ object Form1: TForm1
     ParentCtl3D = False
     ReadOnly = True
     ShowLines = False
-    TabOrder = 2
+    TabOrder = 1
     Items.Data = {
       03000000200000000100000001000000FFFFFFFFFFFFFFFF0000000002000000
       07536F757263657323000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000
       000000000A437C4E6574204E65777322000000FFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFF0000000000000000094741696D204E6577732600000000000000000000
-      00FFFFFFFFFFFFFFFF00000000000000000D4665656420446174616261736525
-      000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000000000000C55706461
-      746520436865636B}
+      00FFFFFFFFFFFFFFFF00000000000000000D466565642044617461626173652A
+      000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000000000001146656564
+      73206F6620746865207765656B}
   end
   object ArticleList: TListView
     Left = 144
-    Top = 8
-    Width = 593
-    Height = 185
+    Top = 52
+    Width = 605
+    Height = 165
     Anchors = [akLeft, akTop, akRight]
     Columns = <
       item
@@ -93,10 +76,172 @@ object Form1: TForm1
       end>
     IconOptions.Arrangement = iaLeft
     PopupMenu = TBPopupMenu1
-    SmallImages = ImageList2
-    TabOrder = 3
+    TabOrder = 2
     ViewStyle = vsReport
     OnDblClick = ArticleListDblClick
+  end
+  object StatusBar: TTBXStatusBar
+    Left = 0
+    Top = 485
+    Width = 755
+    Panels = <
+      item
+        Caption = ' News Turkey: Ready'
+        Framed = False
+        Size = 300
+        Tag = 0
+      end
+      item
+        Control = TBXLink1
+        Framed = False
+        Size = 200
+        Tag = 0
+      end
+      item
+        Control = pbProgress
+        Framed = False
+        Size = 240
+        Tag = 0
+      end>
+    UseSystemFont = False
+    DesignSize = (
+      755
+      22)
+    object pbProgress: TProgressBar
+      Left = 500
+      Top = 2
+      Width = 240
+      Height = 20
+      Anchors = [akRight, akBottom]
+      Min = 0
+      Max = 100
+      TabOrder = 0
+    end
+    object TBXLink1: TTBXLink
+      Left = 300
+      Top = 2
+      Width = 200
+      Height = 20
+      Cursor = crHandPoint
+      Caption = 'News Turkey Update Avalible'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ImageIndex = 0
+      ParentFont = False
+      TabOrder = 1
+      Visible = False
+    end
+  end
+  object TBXDock1: TTBXDock
+    Left = 0
+    Top = 0
+    Width = 755
+    Height = 48
+    LimitToOneRow = True
+    object TBXToolbar1: TTBXToolbar
+      Left = 0
+      Top = 0
+      Caption = 'TBXToolbar1'
+      CloseButton = False
+      DockPos = 0
+      FullSize = True
+      MenuBar = True
+      ProcessShortCuts = True
+      ShrinkMode = tbsmWrap
+      TabOrder = 0
+      object mnuFile: TTBXSubmenuItem
+        Caption = 'File'
+        object opNewSrc: TTBXItem
+          Caption = 'New Source'
+        end
+        object opExit: TTBXItem
+          Caption = 'Exit'
+          OnClick = Exit1Click
+        end
+      end
+      object mnuTools: TTBXSubmenuItem
+        Caption = 'Tools'
+        object opOps: TTBXItem
+          Caption = 'Options'
+          OnClick = Settings1Click
+        end
+      end
+      object mnuHelp: TTBXSubmenuItem
+        Caption = 'Help'
+        object opHelpFile: TTBXItem
+          Caption = 'Help File'
+        end
+        object opAbout: TTBXItem
+          Caption = 'About...'
+        end
+      end
+    end
+    object TBXToolbar2: TTBXToolbar
+      Left = 0
+      Top = 23
+      Caption = 'TBXToolbar2'
+      DockMode = dmCannotFloatOrChangeDocks
+      DockPos = 0
+      TabOrder = 1
+      object btnNewSrc: TTBXItem
+        Caption = 'New Source'
+      end
+      object TBXSeparatorItem2: TTBXSeparatorItem
+        Size = 5
+      end
+      object btnOps: TTBXItem
+        Caption = 'Options'
+        OnClick = Settings1Click
+      end
+      object TBXSeparatorItem1: TTBXSeparatorItem
+        Size = 5
+      end
+      object btnAbout: TTBXItem
+        Caption = 'About'
+      end
+    end
+    object TBXToolbar3: TTBXToolbar
+      Left = 301
+      Top = 23
+      Caption = 'TBXToolbar3'
+      DockMode = dmCannotFloatOrChangeDocks
+      DockPos = 301
+      TabOrder = 2
+      object btnBack: TTBXItem
+        Caption = 'Back'
+        OnClick = btnBackClick
+      end
+      object btnForward: TTBXItem
+        Caption = 'Forward'
+        OnClick = btnForwardClick
+      end
+      object btnStop: TTBXItem
+        Caption = 'Stop'
+        OnClick = btnStopClick
+      end
+    end
+    object TBXToolbar4: TTBXToolbar
+      Left = 556
+      Top = 23
+      Caption = 'TBXToolbar4'
+      DockPos = 560
+      TabOrder = 3
+      object TBXLabelItem1: TTBXLabelItem
+        Caption = 'Search:'
+      end
+      object txtRSSDBQuery: TTBXEditItem
+        ExtendedAccept = True
+      end
+      object TBXSeparatorItem3: TTBXSeparatorItem
+        Size = 5
+      end
+      object btnSearchRSSDB: TTBXItem
+        Caption = 'Search RSS-DB'
+      end
+    end
   end
   object XMLDoc: TXMLDocument
     FileName = 'http://news.com.com/2547-1_3-0-20.xml'
@@ -105,31 +250,17 @@ object Form1: TForm1
     Top = 80
     DOMVendorDesc = 'MSXML'
   end
-  object MainMenu1: TMainMenu
-    Left = 296
-    Top = 80
-    object File1_OLD: TMenuItem
-      Caption = 'File'
-      object Settings1: TMenuItem
-        Caption = 'Settings'
-        OnClick = Settings1Click
-      end
-      object Exit1_OLD: TMenuItem
-        Caption = 'Exit'
-      end
-    end
-  end
-  object TBPopupMenu1: TTBPopupMenu
+  object TBPopupMenu1: TTBXPopupMenu
     Left = 216
     Top = 80
-    object TBItem1: TTBItem
+    object TBItem1: TTBXItem
       Caption = 'Get News'
       OnClick = TBItem1Click
     end
   end
   object ImageList1: TImageList
-    Left = 360
-    Top = 232
+    Left = 368
+    Top = 272
     Bitmap = {
       494C010103000400040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
@@ -412,5 +543,16 @@ object Form1: TForm1
       800700000000000080030000000000008003000000000000C003000000000000
       F003000000000000FF0F00000000000000000000000000000000000000000000
       000000000000}
+  end
+  object TBXSwitcher1: TTBXSwitcher
+    Theme = 'OfficeXP'
+    Left = 376
+    Top = 232
+  end
+  object abfOneInstance1: TabfOneInstance
+    Message = 'Please do not try and start two copies of News Turkey at once.'
+    ShowMessage = True
+    Left = 432
+    Top = 336
   end
 end

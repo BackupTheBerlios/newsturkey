@@ -11,6 +11,16 @@
 #pragma link "TB2Item"
 #pragma link "TB2Toolbar"
 #pragma link "TB2ToolWindow"
+#pragma link "TB2ExtItems"
+#pragma link "TBX"
+#pragma link "TBXSwitcher"
+#pragma link "TB2Dock"
+#pragma link "TB2ExtItems"
+#pragma link "TB2Item"
+#pragma link "TB2Toolbar"
+#pragma link "TBXStatusBars"
+#pragma link "TBXDkPanels"
+#pragma link "abfComponents"
 #pragma resource "*.dfm"
 TForm1 *Form1;
 //---------------------------------------------------------------------------
@@ -27,7 +37,7 @@ void __fastcall TForm1::FormShow(TObject *Sender)
 void __fastcall TForm1::CppWebBrowser1ProgressChange(TObject *Sender,
       long Progress, long ProgressMax)
 {
- long a;
+ /* long a;
  unsigned long b;
  AnsiString c;
 
@@ -38,7 +48,10 @@ void __fastcall TForm1::CppWebBrowser1ProgressChange(TObject *Sender,
   sbStatus->Panels->Items[1]->Text = c.sprintf("%ld%%", b);
  } else {
   sbStatus->Panels->Items[1]->Text = "";
- }
+ } */
+
+ pbProgress->Max = ProgressMax;
+ pbProgress->Position = Progress;
 
 }
 //---------------------------------------------------------------------------
@@ -79,6 +92,8 @@ void __fastcall TForm1::TBItem1Click(TObject *Sender)
 {
  _di_IXMLNode ANode;
  AnsiString fname;
+
+ ArticleList->Clear();
 
  XMLDoc->Active = TRUE;
  ListSources();
@@ -126,7 +141,42 @@ void __fastcall TForm1::ArticleListDblClick(TObject *Sender)
 
 void __fastcall TForm1::Settings1Click(TObject *Sender)
 {
- //frmSettings->Show();
+ frmSettings->Show();
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm1::Exit1_OLDClick(TObject *Sender)
+{
+ exit(0);        
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::TBEditItem1Click(TObject *Sender)
+{
+//if(TBEditItem1->Text == "Search Query Here") {
+  //TBEditItem1->Text = "";
+ //}
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::btnStopClick(TObject *Sender)
+{
+ CppWebBrowser1->Stop();        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::btnForwardClick(TObject *Sender)
+{
+ CppWebBrowser1->GoForward();        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::btnBackClick(TObject *Sender)
+{
+ CppWebBrowser1->GoBack();        
+}
+//---------------------------------------------------------------------------
+
 

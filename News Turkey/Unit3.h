@@ -4,12 +4,17 @@
 #define Unit3H
 
 #include <Classes.hpp>
+#include "SHDocVw_OCX.h"
+#include <XMLDoc.hpp>
 
-__declspec(delphiclass) class TArticle {
+class TArticle {
 
 public:
+        int id;
         AnsiString Title;
         AnsiString Link;
+        AnsiString Description;
+        void __fastcall BrowseToMe( TCppWebBrowser* Browser );
 
 };
 
@@ -32,8 +37,9 @@ class TSource {
 
 class TSources {
         public:
+                int count;
                 TSource* Source[];
-                //TSource* __fastcall AddSource(TXMLDocument* XDC);
+                TSource* __fastcall AddSource(AnsiString Name, AnsiString Link);
                 void __fastcall DeleteSource(int id);
                 void __fastcall DeleteSource(TSource* Target);
                 TSource* __fastcall GetSource(int id);

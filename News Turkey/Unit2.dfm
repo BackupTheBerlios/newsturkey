@@ -1,6 +1,6 @@
 object frmSettings: TfrmSettings
-  Left = 314
-  Top = 188
+  Left = 369
+  Top = 147
   BorderStyle = bsSingle
   Caption = 'News Turkey Settings'
   ClientHeight = 406
@@ -66,7 +66,7 @@ object frmSettings: TfrmSettings
         Height = 97
         Caption = 'Start Up'
         TabOrder = 0
-        object CheckBox1: TCheckBox
+        object chkSplash: TCheckBox
           Left = 8
           Top = 24
           Width = 201
@@ -74,7 +74,7 @@ object frmSettings: TfrmSettings
           Caption = 'Enable Splash Screen'
           TabOrder = 0
         end
-        object CheckBox2: TCheckBox
+        object chkAutoStart: TCheckBox
           Left = 8
           Top = 48
           Width = 185
@@ -82,7 +82,7 @@ object frmSettings: TfrmSettings
           Caption = 'Start News Turkey with Windows'
           TabOrder = 1
         end
-        object CheckBox3: TCheckBox
+        object chkStartRefresh: TCheckBox
           Left = 8
           Top = 72
           Width = 329
@@ -98,7 +98,7 @@ object frmSettings: TfrmSettings
         Height = 73
         Caption = 'Source Management'
         TabOrder = 1
-        object CheckBox4: TCheckBox
+        object chkEnableRSSDB: TCheckBox
           Left = 8
           Top = 24
           Width = 345
@@ -106,7 +106,7 @@ object frmSettings: TfrmSettings
           Caption = 'Enable using the RSSDirectory to find feeds'
           TabOrder = 0
         end
-        object CheckBox5: TCheckBox
+        object chkEnableInstantAdd: TCheckBox
           Left = 8
           Top = 48
           Width = 281
@@ -122,7 +122,7 @@ object frmSettings: TfrmSettings
         Height = 105
         Caption = 'Misc.'
         TabOrder = 2
-        object CheckBox6: TCheckBox
+        object chkAnimateTaskbar: TCheckBox
           Left = 8
           Top = 24
           Width = 321
@@ -130,7 +130,7 @@ object frmSettings: TfrmSettings
           Caption = 'Animate Taskbar Icon when new information is avalible'
           TabOrder = 0
         end
-        object CheckBox7: TCheckBox
+        object chkWhales: TCheckBox
           Left = 8
           Top = 48
           Width = 297
@@ -143,10 +143,102 @@ object frmSettings: TfrmSettings
     object TabSheet2: TTabSheet
       Caption = 'Sources'
       ImageIndex = 1
+      object GroupBox4: TGroupBox
+        Left = 8
+        Top = 8
+        Width = 369
+        Height = 137
+        Caption = 'Sources'
+        TabOrder = 0
+        object lvSourceCfg: TListView
+          Left = 8
+          Top = 16
+          Width = 353
+          Height = 81
+          Columns = <
+            item
+              AutoSize = True
+              Caption = 'Source Name'
+            end
+            item
+              Caption = 'Status'
+              Width = 60
+            end>
+          TabOrder = 0
+          ViewStyle = vsReport
+        end
+        object btnAddSource: TButton
+          Left = 8
+          Top = 104
+          Width = 169
+          Height = 25
+          Caption = 'Add Source'
+          TabOrder = 1
+        end
+        object btnRemoveSource: TButton
+          Left = 192
+          Top = 104
+          Width = 169
+          Height = 25
+          Caption = 'Remove Source'
+          Enabled = False
+          TabOrder = 2
+        end
+      end
+      object GroupBox5: TGroupBox
+        Left = 8
+        Top = 152
+        Width = 369
+        Height = 73
+        Caption = 'Source Options'
+        TabOrder = 1
+        object btnEnableWebAdd: TCheckBox
+          Left = 16
+          Top = 24
+          Width = 329
+          Height = 17
+          Caption = 'Enable Web Add'
+          TabOrder = 0
+        end
+        object btnAutoNames: TCheckBox
+          Left = 16
+          Top = 48
+          Width = 345
+          Height = 17
+          Caption = 'Automatically Detect Source Names'
+          TabOrder = 1
+        end
+      end
     end
     object TabSheet3: TTabSheet
       Caption = 'Internet Connection'
       ImageIndex = 2
+      object GroupBox6: TGroupBox
+        Left = 8
+        Top = 8
+        Width = 369
+        Height = 89
+        Caption = 'Internet Connection'
+        TabOrder = 0
+        object rDialUp: TRadioButton
+          Left = 8
+          Top = 24
+          Width = 345
+          Height = 17
+          Caption = 
+            'I Dial-Up to the Internet via a modem. My connection isn'#39't alway' +
+            's on.'
+          TabOrder = 0
+        end
+        object rBroadband: TRadioButton
+          Left = 8
+          Top = 48
+          Width = 353
+          Height = 17
+          Caption = 'I have a Broadband/LAN internet connection that is always on.'
+          TabOrder = 1
+        end
+      end
     end
     object TabSheet5: TTabSheet
       Caption = 'License'
@@ -154,8 +246,8 @@ object frmSettings: TfrmSettings
       object Label6: TLabel
         Left = 24
         Top = 0
-        Width = 322
-        Height = 17
+        Width = 314
+        Height = 13
         Caption = 'News Turkey is distributed under the GNU General Public License.'
         WordWrap = True
       end
@@ -915,7 +1007,7 @@ object frmSettings: TfrmSettings
         Top = 64
         Width = 107
         Height = 24
-        Caption = 'ALPHA 1025'
+        Caption = 'ALPHA 1039'
         Color = clRed
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clRed
@@ -925,24 +1017,6 @@ object frmSettings: TfrmSettings
         ParentColor = False
         ParentFont = False
         Transparent = True
-      end
-      object Label3: TLabel
-        Left = 48
-        Top = 120
-        Width = 295
-        Height = 144
-        Caption = 
-          'This program is subject to the terms of the GNU General Public L' +
-          'icense. It is provided as open-source, free-of-charge software w' +
-          'ith sourcecode avalible to download. If you do not agree to the ' +
-          'terms of the GNU GPL, then please uninstall this program.'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Verdana'
-        Font.Style = []
-        ParentFont = False
-        WordWrap = True
       end
       object Label4: TLabel
         Left = 8
@@ -973,6 +1047,41 @@ object frmSettings: TfrmSettings
         Font.Style = []
         ParentFont = False
         Transparent = True
+      end
+      object Memo2: TMemo
+        Left = 24
+        Top = 120
+        Width = 337
+        Height = 169
+        Lines.Strings = (
+          'News Turkey is distributed under the terms of the GNU General '
+          'Public License.If you do not agree to these terms, it is asked '
+          'you uninstall this '
+          'program.'
+          ''
+          'Now, as always with my projects, I figure why do something '
+          'yourself, when it is already been done for you, that is why I '
+          'made use of a number of external libraries'
+          'during the development of News Turkey. Most of these are '
+          'VCL Components.'
+          'You will need these libraries/components to develop with the '
+          'News Turkey source code.'
+          ''
+          'LIST OF LIBRARIES USED -'
+          'abfComponents (http://www.abfdev.com)'
+          'Toolbar2000 v2.1.2 (http://www.jrsoftware.org)'
+          'TBX v2.0 (http://www.g32.org)'
+          ''
+          
+            'Each of these libraries have their own licences and not created ' +
+            'or '
+          'owned by '
+          'Havoc Software Prodcutions.'
+          ''
+          '-Compman (a.k.a. havocsoft)')
+        ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 0
       end
     end
   end

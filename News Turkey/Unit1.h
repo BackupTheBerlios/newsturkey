@@ -18,29 +18,63 @@
 #include <XMLDoc.hpp>
 #include <xmldom.hpp>
 #include <XMLIntf.hpp>
+#include "Unit2.h"
+#include "Unit3.h"
+#include "TBXExtItems.hpp"
+#include "TBX.hpp"
+#include "TBXSwitcher.hpp"
 #include "TB2Dock.hpp"
+#include "TB2ExtItems.hpp"
 #include "TB2Item.hpp"
 #include "TB2Toolbar.hpp"
-#include "TB2ToolWindow.hpp"
-#include "Unit2.h"
+#include "TBXStatusBars.hpp"
+#include "TBXDkPanels.hpp"
+#include "abfComponents.hpp"
+#pragma link "TBXOfficeXPTheme"
+#pragma include "TBXOfficeXPTheme.pas"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
-        TStatusBar *sbStatus;
         TCppWebBrowser *CppWebBrowser1;
         TXMLDocument *XMLDoc;
         TPanel *Panel1;
-        TMainMenu *MainMenu1;
-        TMenuItem *File1_OLD;
-        TMenuItem *Exit1_OLD;
-        TTBPopupMenu *TBPopupMenu1;
-        TTBItem *TBItem1;
+        TTBXPopupMenu *TBPopupMenu1;
+        TTBXItem *TBItem1;
         TTreeView *NavMenu;
         TImageList *ImageList1;
         TListView *ArticleList;
+        TProgressBar *pbProgress;
         TImageList *ImageList2;
-        TMenuItem *Settings1;
+        TTBXStatusBar *StatusBar;
+        TTBXSwitcher *TBXSwitcher1;
+        TTBXDock *TBXDock1;
+        TTBXToolbar *TBXToolbar1;
+        TTBXSubmenuItem *mnuFile;
+        TTBXItem *opNewSrc;
+        TTBXItem *opExit;
+        TTBXSubmenuItem *mnuTools;
+        TTBXSubmenuItem *mnuHelp;
+        TTBXItem *opOps;
+        TTBXItem *opHelpFile;
+        TTBXItem *opAbout;
+        TTBXToolbar *TBXToolbar2;
+        TTBXItem *btnNewSrc;
+        TTBXItem *btnOps;
+        TTBXItem *btnAbout;
+        TTBXSeparatorItem *TBXSeparatorItem1;
+        TTBXSeparatorItem *TBXSeparatorItem2;
+        TTBXToolbar *TBXToolbar3;
+        TTBXItem *btnBack;
+        TTBXItem *btnForward;
+        TTBXItem *btnStop;
+        TTBXToolbar *TBXToolbar4;
+        TTBXLabelItem *TBXLabelItem1;
+        TTBXEditItem *txtRSSDBQuery;
+        TTBXSeparatorItem *TBXSeparatorItem3;
+        TTBXItem *btnSearchRSSDB;
+        TTBXLink *TBXLink1;
+        TabfOneInstance *abfOneInstance1;
         void __fastcall FormShow(TObject *Sender);
         void __fastcall CppWebBrowser1ProgressChange(TObject *Sender,
           long Progress, long ProgressMax);
@@ -49,6 +83,11 @@ __published:	// IDE-managed Components
         void __fastcall TBItem1Click(TObject *Sender);
         void __fastcall ArticleListDblClick(TObject *Sender);
         void __fastcall Settings1Click(TObject *Sender);
+        void __fastcall Exit1_OLDClick(TObject *Sender);
+        void __fastcall TBEditItem1Click(TObject *Sender);
+        void __fastcall btnStopClick(TObject *Sender);
+        void __fastcall btnForwardClick(TObject *Sender);
+        void __fastcall btnBackClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

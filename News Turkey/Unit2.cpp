@@ -22,3 +22,4 @@ void __fastcall TfrmSettings::btnCancelClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+

@@ -9,8 +9,8 @@
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) Unit1.dfm Unit2.dfm"/>
     <LIBFILES value=""/>
-    <LIBRARIES value="tb2k_cb6.lib"/>
-    <SPARELIBS value="vcl.lib rtl.lib bcbie.lib xmlrtl.lib inet.lib tb2k_cb6.lib"/>
+    <LIBRARIES value="tbx_cb6.lib tb2k_cb6.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib bcbie.lib xmlrtl.lib inet.lib tb2k_cb6.lib tbx_cb6.lib"/>
     <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi bcbsmp.bpi dbrtl.bpi adortl.bpi vcldb.bpi 
       qrpt.bpi bdertl.bpi vcldbx.bpi dsnap.bpi cds.bpi bdecds.bpi teeui.bpi 
       teedb.bpi tee.bpi teeqr.bpi ibxpress.bpi visualclx.bpi visualdbclx.bpi 
@@ -27,8 +27,8 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
     <MAINSOURCE value="NewsTurkey.cpp"/>
-    <INCLUDEPATH value="C:\Toolbar2k\Toolbar2k\Source;..\..\Examples\Icons;..;&quot;News Turkey&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="$(BCB)\Projects\Lib;C:\Toolbar2k\Toolbar2k\Source;..\..\Examples\Icons;..;&quot;News Turkey&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="C:\ABFsoft\units;C:\tb2k\Source;C:\tbx-2_0;C:\Toolbar2k\Toolbar2k\Source;..\..\Examples\Icons;..;&quot;News Turkey&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="C:\ABFsoft\units;C:\tb2k\Source;C:\tbx-2_0;$(BCB)\Projects\Lib;C:\Toolbar2k\Toolbar2k\Source;..\..\Examples\Icons;..;&quot;News Turkey&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
