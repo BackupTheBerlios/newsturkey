@@ -180,3 +180,24 @@ void __fastcall TForm1::btnBackClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
+void __fastcall TForm1::opNewSrcClick(TObject *Sender)
+{
+ frmNewSource->Show();        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::NavMenuChange(TObject *Sender, TTreeNode *Node)
+{
+ if(Node->Parent == SourcesNode) {
+  ArticleList->Clear();
+
+  if(Node->Index == 0) {
+   XMLDoc->FileName = "http://news.com.com/2547-1_3-0-20.xml";
+  } else if(Node->Index == 1) {
+   XMLDoc->FileName = "http://gaim.sourceforge.net/rss.php/news";
+  }
+
+ }
+}
+//---------------------------------------------------------------------------
+

@@ -8,6 +8,8 @@
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
 #include <ComCtrls.hpp>
+#include "Unit4.h"
+#include "Unit3.h"
 //---------------------------------------------------------------------------
 class TfrmSettings : public TForm
 {
@@ -50,6 +52,7 @@ __published:	// IDE-managed Components
         TRadioButton *rBroadband;
         TMemo *Memo2;
         void __fastcall btnCancelClick(TObject *Sender);
+        void __fastcall btnAddSourceClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TfrmSettings(TComponent* Owner);

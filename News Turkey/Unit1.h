@@ -20,6 +20,8 @@
 #include <XMLIntf.hpp>
 #include "Unit2.h"
 #include "Unit3.h"
+#include "Unit4.h"
+#include "Unit5.h"
 #include "TBXExtItems.hpp"
 #include "TBX.hpp"
 #include "TBXSwitcher.hpp"
@@ -88,12 +90,18 @@ __published:	// IDE-managed Components
         void __fastcall btnStopClick(TObject *Sender);
         void __fastcall btnForwardClick(TObject *Sender);
         void __fastcall btnBackClick(TObject *Sender);
+        void __fastcall opNewSrcClick(TObject *Sender);
+        void __fastcall NavMenuChange(TObject *Sender, TTreeNode *Node);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
         void __fastcall ListSources();
         _di_IXMLNode RSSRoot;
         _di_IXMLNode RSSChannel;
+        TSources TurkeySources;
+        TTreeNode* SourcesNode;
+        TTreeNode* FeedDBNode;
+        TTreeNode* PopFeedsNode;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

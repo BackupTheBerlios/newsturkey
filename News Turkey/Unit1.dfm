@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 184
-  Top = 114
+  Left = 202
+  Top = 149
   Width = 763
   Height = 541
   Caption = 'News Turkey'
@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesktopCenter
   OnShow = FormShow
   DesignSize = (
     755
@@ -54,6 +55,7 @@ object Form1: TForm1
     ReadOnly = True
     ShowLines = False
     TabOrder = 1
+    OnChange = NavMenuChange
     Items.Data = {
       03000000200000000100000001000000FFFFFFFFFFFFFFFF0000000002000000
       07536F757263657323000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000
@@ -76,6 +78,7 @@ object Form1: TForm1
       end>
     IconOptions.Arrangement = iaLeft
     PopupMenu = TBPopupMenu1
+    SmallImages = ImageList2
     TabOrder = 2
     ViewStyle = vsReport
     OnDblClick = ArticleListDblClick
@@ -156,6 +159,7 @@ object Form1: TForm1
         Caption = 'File'
         object opNewSrc: TTBXItem
           Caption = 'New Source'
+          OnClick = opNewSrcClick
         end
         object opExit: TTBXItem
           Caption = 'Exit'
@@ -188,6 +192,7 @@ object Form1: TForm1
       TabOrder = 1
       object btnNewSrc: TTBXItem
         Caption = 'New Source'
+        OnClick = opNewSrcClick
       end
       object TBXSeparatorItem2: TTBXSeparatorItem
         Size = 5

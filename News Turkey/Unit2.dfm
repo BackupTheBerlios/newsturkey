@@ -1,6 +1,6 @@
 object frmSettings: TfrmSettings
-  Left = 369
-  Top = 147
+  Left = 221
+  Top = 119
   BorderStyle = bsSingle
   Caption = 'News Turkey Settings'
   ClientHeight = 406
@@ -174,6 +174,7 @@ object frmSettings: TfrmSettings
           Height = 25
           Caption = 'Add Source'
           TabOrder = 1
+          OnClick = btnAddSourceClick
         end
         object btnRemoveSource: TButton
           Left = 192

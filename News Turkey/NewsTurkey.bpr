@@ -4,13 +4,14 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="NewsTurkey.exe"/>
-    <OBJFILES value="NewsTurkey.obj Unit1.obj Unit2.obj Unit3.obj"/>
+    <OBJFILES value="NewsTurkey.obj Unit1.obj Unit2.obj Unit3.obj Unit4.obj Unit5.obj"/>
     <RESFILES value="NewsTurkey.res windowsxp.res"/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) Unit1.dfm Unit2.dfm"/>
+    <RESDEPEN value="$(RESFILES) Unit1.dfm Unit2.dfm Unit4.dfm Unit5.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value="tbx_cb6.lib tb2k_cb6.lib"/>
-    <SPARELIBS value="vcl.lib rtl.lib bcbie.lib xmlrtl.lib inet.lib tb2k_cb6.lib tbx_cb6.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib bcbie.lib xmlrtl.lib inet.lib tb2k_cb6.lib tbx_cb6.lib 
+      bcbsmp.lib vclx.lib"/>
     <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi bcbsmp.bpi dbrtl.bpi adortl.bpi vcldb.bpi 
       qrpt.bpi bdertl.bpi vcldbx.bpi dsnap.bpi cds.bpi bdecds.bpi teeui.bpi 
       teedb.bpi tee.bpi teeqr.bpi ibxpress.bpi visualclx.bpi visualdbclx.bpi 
@@ -27,8 +28,8 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
     <MAINSOURCE value="NewsTurkey.cpp"/>
-    <INCLUDEPATH value="C:\ABFsoft\units;C:\tb2k\Source;C:\tbx-2_0;C:\Toolbar2k\Toolbar2k\Source;..\..\Examples\Icons;..;&quot;News Turkey&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="C:\ABFsoft\units;C:\tb2k\Source;C:\tbx-2_0;$(BCB)\Projects\Lib;C:\Toolbar2k\Toolbar2k\Source;..\..\Examples\Icons;..;&quot;News Turkey&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="C:\ABFsoft\units;..\..\Examples\Icons;..;$(BCB)\include;$(BCB)\include\vcl;&quot;C:\Program Files\Borland\tb2k\Source&quot;;&quot;C:\Program Files\Borland\tbx&quot;"/>
+    <LIBPATH value="C:\ABFsoft\units;$(BCB)\Projects\Lib;..\..\Examples\Icons;..;$(BCB)\lib\obj;$(BCB)\lib;&quot;C:\Program Files\Borland\tbx&quot;;&quot;C:\Program Files\Borland\tb2k\Source&quot;"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
@@ -54,6 +55,8 @@
       <FILE FILENAME="windowsxp.RES" FORMNAME="" UNITNAME="windowsxp.RES" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit2.cpp" FORMNAME="frmSettings" UNITNAME="Unit2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit3.cpp" FORMNAME="" UNITNAME="Unit3" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit4.cpp" FORMNAME="frmNewSource" UNITNAME="Unit4" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit5.cpp" FORMNAME="frmSplash" UNITNAME="Unit5" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
@@ -87,12 +90,16 @@ ProductVersion=1.0.0.0
 Comments=
 
 [HistoryLists\hlIncludePath]
-Count=1
-Item0=..\..\Examples\Icons;..;News Turkey;$(BCB)\include;$(BCB)\include\vcl
+Count=3
+Item0=C:\ABFsoft\units;..\..\Examples\Icons;..;$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\Borland\tb2k\Source;C:\Program Files\Borland\tbx
+Item1=C:\ABFsoft\units;C:\tb2k\Source;C:\tbx-2_0;C:\Toolbar2k\Toolbar2k\Source;..\..\Examples\Icons;..;News Turkey;$(BCB)\include;$(BCB)\include\vcl
+Item2=..\..\Examples\Icons;..;News Turkey;$(BCB)\include;$(BCB)\include\vcl
 
 [HistoryLists\hlLibraryPath]
-Count=1
-Item0=..\..\Examples\Icons;..;News Turkey;$(BCB)\lib\obj;$(BCB)\lib
+Count=3
+Item0=C:\ABFsoft\units;$(BCB)\Projects\Lib;..\..\Examples\Icons;..;$(BCB)\lib\obj;$(BCB)\lib;C:\Program Files\Borland\tbx;C:\Program Files\Borland\tb2k\Source
+Item1=C:\ABFsoft\units;C:\tb2k\Source;C:\tbx-2_0;$(BCB)\Projects\Lib;C:\Toolbar2k\Toolbar2k\Source;..\..\Examples\Icons;..;News Turkey;$(BCB)\lib\obj;$(BCB)\lib
+Item2=..\..\Examples\Icons;..;News Turkey;$(BCB)\lib\obj;$(BCB)\lib
 
 [HistoryLists\hlDebugSourcePath]
 Count=1
